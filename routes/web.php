@@ -18,3 +18,5 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/single/{id}', [App\Http\Controllers\SingleAM::class, 'index']);
+Route::get('/anime-list', [App\Http\Controllers\ListAM::class, 'list_anime']);
+Route::get('/manga-list', [App\Http\Controllers\ListAM::class, 'list_manga']);

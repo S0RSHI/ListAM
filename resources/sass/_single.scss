@@ -12,7 +12,7 @@
             content: '';
             display: block;
             display: absolute;
-            background-color: $light-blue;
+            background-color: $grey-blue;
             width: 100%;
             position: absolute;
             left: 0;
@@ -56,7 +56,7 @@
     }
 
     &__content-container {
-        color: $black;
+        color: $white;
         padding-top: 24px;
         display: flex;
         font-size: 16px;

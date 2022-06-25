@@ -24,7 +24,11 @@
                                 </ul>
                             </div>
                             <div class="single-am__info">
-                                {{$anime_manga[0]->desc_am}}
+                                <?php
+                                    $desc = str_replace('&lt;', '<', $anime_manga[0]->desc_am);
+                                    $desc = str_replace('&gt;', '>', $desc);
+                                    echo $desc;
+                                ?>
                             </div>
                         </div>
                         <ul class="single-am__category">

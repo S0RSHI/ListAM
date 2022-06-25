@@ -10301,6 +10301,7 @@ textarea.form-control-lg {
   grid-template-columns: repeat(5, minmax(200px, 200px));
   padding: 0;
   justify-content: space-between;
+  row-gap: 12%;
 }
 .grid-am__tile {
   border-radius: 12px;
@@ -10331,6 +10332,9 @@ textarea.form-control-lg {
   max-width: calc(100% - 20px);
   color: #FFFFFF;
 }
+.grid-am__category {
+  font-size: 12px;
+}
 .grid-am__overlay {
   pointer-events: none;
   z-index: 2;
@@ -10358,7 +10362,7 @@ textarea.form-control-lg {
   content: "";
   display: block;
   display: absolute;
-  background-color: #67AAF9;
+  background-color: #284b74;
   width: 100%;
   position: absolute;
   left: 0;
@@ -10393,7 +10397,7 @@ textarea.form-control-lg {
   z-index: 1;
 }
 .single-am__content-container {
-  color: #000;
+  color: #FFFFFF;
   padding-top: 24px;
   display: flex;
   font-size: 16px;

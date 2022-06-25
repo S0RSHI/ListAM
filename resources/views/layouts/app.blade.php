@@ -36,13 +36,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto v-nav__menu--left">
-                        <a href="/" onclick="event.preventDefault();">
+                        <a href="/anime-list">
                             Anime list
                         </a>
-                        <a href="/" onclick="event.preventDefault();">
+                        <a href="/manga-list">
                             Manga list
                         </a>
-                        <a href="/" onclick="event.preventDefault();">
+                        <a href="/">
                             Your list
                         </a>
                     </ul>

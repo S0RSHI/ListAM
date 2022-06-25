@@ -23,6 +23,19 @@
                             <div class="grid-am__overlay"></div>
                             <div class="grid-am__title">
                                 {{ $am_item->title_am }}
+                                <br>
+                                <span class="grid-am__category">
+                                    <?php
+                                        $categories = explode(", ", $am_item->category_am);
+                                        foreach ($categories as $key=>$category) {
+                                            if($key>2) break;
+                                            if($key != 2)
+                                                echo $category.', ';
+                                            else
+                                                echo $category;
+                                        }
+                                    ?>
+                                </span>
                             </div>
                         </a>
                         <?php
@@ -47,6 +60,19 @@
                             <div class="grid-am__overlay"></div>
                             <div class="grid-am__title">
                                 {{ $am_item->title_am }}
+                                <br>
+                                <span class="grid-am__category">
+                                    <?php
+                                        $categories = explode(", ", $am_item->category_am);
+                                        foreach ($categories as $key=>$category) {
+                                            if($key>2) break;
+                                            if($key != 2)
+                                                echo $category.', ';
+                                            else
+                                                echo $category;
+                                        }
+                                    ?>
+                                </span>
                             </div>
                         </a>
                         <?php
