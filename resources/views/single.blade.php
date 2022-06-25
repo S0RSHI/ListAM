@@ -7,7 +7,9 @@
             <div class="single-am__container">
                 <div class="single-am__left-col">
                     <img src="{{ $anime_manga[0]->image_am }}" alt="poster" class="single-am__img">
-                    <a class="single-am__button" href="/">Dodaj do listy</a>
+                    <form action="addList" method="POST">
+                        <button type="submit" class="single-am__button">>Dodaj do listy</button>
+                    </form>
                 </div>
                 <div class="single-am__content">
                     <h2 class="single-am__title">{{$anime_manga[0]->title_am}}</h2>
