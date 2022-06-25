@@ -10318,10 +10318,12 @@ textarea.form-control-lg {
   cursor: pointer;
 }
 .grid-am__img {
+  pointer-events: none;
   z-index: 1;
   width: 100%;
 }
 .grid-am__title {
+  pointer-events: none;
   z-index: 3;
   position: absolute;
   bottom: 10px;
@@ -10330,6 +10332,7 @@ textarea.form-control-lg {
   color: #FFFFFF;
 }
 .grid-am__overlay {
+  pointer-events: none;
   z-index: 2;
   position: absolute;
   top: -10%;

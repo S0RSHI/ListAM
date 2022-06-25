@@ -18,7 +18,7 @@
                         <?php
                             $index_anime++;
                         ?>
-                        <a class="grid-am__tile" src="/">
+                        <a class="grid-am__tile" href="/single/{{$am_item->id_am}}">
                             <img class="grid-am__img" src="{{ $am_item->image_am }}">
                             <div class="grid-am__overlay"></div>
                             <div class="grid-am__title">
@@ -42,7 +42,7 @@
                         <?php
                             $index_manga++;
                         ?>
-                        <a class="grid-am__tile" src="/">
+                        <a class="grid-am__tile" href="/single/{{$am_item->id_am}}">
                             <img class="grid-am__img" src="{{ $am_item->image_am }}">
                             <div class="grid-am__overlay"></div>
                             <div class="grid-am__title">
