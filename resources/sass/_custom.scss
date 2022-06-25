@@ -35,3 +35,20 @@
         }
     }
 }
+
+.custom-title {
+    &__01 {
+        width: 100%;
+        margin: 0 0 32px;
+        font-size: 28px;
+        font-weight: 900;
+        color: $white;
+        letter-spacing: 2px;
+    }
+}
+
+.custom-section {
+    &__01 {
+        margin: 0 0 64px;
+    }
+}

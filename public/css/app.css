@@ -10281,3 +10281,60 @@ textarea.form-control-lg {
 .v-nav__menu--right {
   width: 100px;
 }
+
+.custom-title__01 {
+  width: 100%;
+  margin: 0 0 32px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+}
+
+.custom-section__01 {
+  margin: 0 0 64px;
+}
+
+.grid-am {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 200px));
+  padding: 0;
+  justify-content: space-between;
+}
+.grid-am__tile {
+  border-radius: 12px;
+  position: relative;
+  width: 200px;
+  height: 280px;
+  overflow: hidden;
+  transform: scale(1);
+  transition-duration: 0.6s;
+  box-shadow: 4px 4px 11px 0px rgb(0, 0, 0), inset 0px 0px 17px 0px rgba(0, 0, 0, 0.64);
+}
+.grid-am__tile:hover {
+  transform: scale(1.1);
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+.grid-am__img {
+  z-index: 1;
+  width: 100%;
+}
+.grid-am__title {
+  z-index: 3;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  max-width: calc(100% - 20px);
+  color: #FFFFFF;
+}
+.grid-am__overlay {
+  z-index: 2;
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+}
