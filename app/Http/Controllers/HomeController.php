@@ -28,8 +28,8 @@ class HomeController extends Controller
         return view('home', compact('anime_manga'));
     }
 
-    public function test( $id ){
-        $anime_manga = DB::table('anime_manga')->where('id_am', '=', $id)->get();
-        return view('home', compact('anime_manga'));
-    }
+    // public function test( $id ){
+    //     $anime_manga = DB::table('anime_manga')->where('id_am', '=', $id)->get();
+    //     return view('home', compact('anime_manga'));
+    // }
 }
