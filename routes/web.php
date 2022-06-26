@@ -27,3 +27,4 @@ Route::get('/my-list', [App\Http\Controllers\ListAM::class, 'my_list']);
 
 Route::post('/addList', [App\Http\Controllers\UserList::class, 'add_to_list']);
 Route::post('/removeList', [App\Http\Controllers\UserList::class, 'remove_list']);
+Route::post('/editList', [App\Http\Controllers\UserList::class, 'edit_list']);

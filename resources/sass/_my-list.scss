@@ -31,8 +31,11 @@
         align-items: center;
         justify-content: center;
         background-color: $red;
-        right: -16px;
+        right: -24px;
         bottom: -16px;
+        -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
 
         svg {
             width: 24px;
@@ -42,6 +45,33 @@
         &:hover {
             cursor: pointer;
             background-color: $dark-red;
+        }
+    }
+
+    &__edit{
+        border-radius: 100%;
+        z-index: 2;
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $green;
+        bottom: 38px;
+        right: -24px;
+        -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $dark-green;
         }
     }
 
@@ -66,7 +96,12 @@
         font-size: 20px;
     }
 
-    h4{
+    h4, input, select{
+        color: $white;
+        background-color: transparent;
+        outline: none;
+        margin: 0;
+        border: 0;
         font-size: 24px;
         justify-content: center;
         text-align: left;
@@ -81,6 +116,21 @@
         margin-top: 16px;
         border-radius: 12px;
     }
+    select{
+        min-width: 150px;
+        cursor: pointer;
+        appearance: none;
+
+        option {
+            cursor: pointer;
+            color: $black;
+        }
+    }
+
+    input, input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        text-align: center !important;
+    }
 
     &__title {
         h4 {
@@ -88,9 +138,4 @@
         }
     }
 
-    &__status {
-        h4 {
-            width: 160px;
-        }
-    }
 }

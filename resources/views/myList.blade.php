@@ -8,7 +8,7 @@
         </h2>
         @foreach ($user_list as $item)
             <div class="list-item">
-                <img class="list-item__img" src="{{$item->image_am}}">
+                <a href="/single/{{$item->id_am}}"><img class="list-item__img" src="{{$item->image_am}}"></a>
                 <div class="list-item__text-container">
                     <div class="list-item__title">
                         <h5>
@@ -22,46 +22,24 @@
                         <h5>
                             Status:
                         </h5>
-                        <h4>
-                            <?php
-                             if ($item->status == 1)
-                                echo 'Planning';
-                            else if ($item->status == 2)
-                                echo 'In progress';
-                            else if ($item->status == 3)
-                                echo 'Finished';
-                            else
-                                echo'None';
-                            ?>
-                        </h4>
+                        <select name="status"  placeholder="Status">
+                            <option <?php if ($item->status == 1) echo 'selected="selected"' ?> value="1">Planning</option>
+                            <option <?php if ($item->status == 2) echo 'selected="selected"' ?> value="2">In progress</option>
+                            <option <?php if ($item->status == 3) echo 'selected="selected"' ?> value="3">Finished</option>
+                        </select>
                     </div>
                     <div class="list-item__progress">
                         <h5>
                            Progress:
                         </h5>
-                        <h4>
-                            <?php
-                                if ($item->progress < 0 || $item->progress == null)
-                                    echo 0;
-                                else
-                                    echo $item->progress;
-                            ?>
-                        </h4>
+                        <input name="progress" placeholder="Progresss" type="number" min="0" max="10" value="<?php if ($item->progress < 0 || $item->progress == null) echo 0;else echo $item->progress; ?>">
                     </div>
                     <div class="list-item__rate">
                         <h5>
                             Rate:
                         </h5>
-                        <h4>
-                            <?php
-                                if ($item->rate < 0 || $item->rate == null)
-                                    echo 0;
-                                else if ($item->rate > 10)
-                                    echo 10;
-                                else
-                                    echo $item->rate;
-                            ?>
-                        </h4>
+                        <input name="rate" placeholder="0 - 10" type="number" min="0" max="10" value="<?php if ($item->rate < 0 || $item->rate == null)echo 0;else if ($item->rate > 10)echo 10;else echo $item->rate;?>">
+
                     </div>
                 </div>
                 <a class="list-item__delete" data-id-item='{{$item->id_list}}'>
@@ -77,18 +55,26 @@
                         c-7.125,0-12.9,5.776-12.9,12.901V74.47h304.451V33.944C356.467,26.819,350.692,21.043,343.567,21.043z"/>
                     </svg>
                 </a>
+                <a class="list-item__edit" data-id-item='{{$item->id_list}}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+                        <path d="m19.3 8.925-4.25-4.2 1.4-1.4q.575-.575 1.413-.575.837 0 1.412.575l1.4 1.4q.575.575.6 1.388.025.812-.55 1.387ZM17.85 10.4 7.25 21H3v-4.25l10.6-10.6Z"/>
+                    </svg>
+                </a>
             </div>
         @endforeach
     </div>
 </div>
 <script type="application/javascript">
+document.querySelectorAll('.list-item__edit').forEach(el => {
+    el.addEventListener('click', editlist);
+});
+
 document.querySelectorAll('.list-item__delete').forEach(el => {
     el.addEventListener('click', removelist);
 });
 
 function removelist(e) {
     e.preventDefault();
-    console.log(e);
 
     let id_list = this.dataset.idItem;
 
@@ -102,6 +88,33 @@ function removelist(e) {
     });
 
     fetch('/removeList', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(params)
+    })
+
+    .then(data => data.json())
+    .then(data => {
+        if (data == 'git') location.reload();
+    })
+}
+
+function editlist(e) {
+    e.preventDefault();
+
+    let params = {
+        id_list: this.dataset.idItem,
+        status: this.parentElement.querySelector('select[name="status"]').value,
+        progress: this.parentElement.querySelector('input[name="progress"]').value,
+        rate: this.parentElement.querySelector('input[name="rate"]').value
+    }
+
+    const headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': '{{csrf_token()}}'
+    });
+
+    fetch('/editList', {
         method: 'POST',
         headers,
         body: JSON.stringify(params)

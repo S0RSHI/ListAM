@@ -12,7 +12,7 @@
             content: '';
             display: block;
             display: absolute;
-            background-color: $grey-blue;
+            background-image: $purple-gradient;
             width: 100%;
             position: absolute;
             left: 0;
@@ -145,7 +145,26 @@
         justify-content: center;
     }
 
+    &__popup-close{
+        -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        border-radius: 100%;
+        position: absolute;
+        top: -32px;
+        right: -32px;
+        transform: scale(0.7);
+        padding: 8px;
+        background-color: $red;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $dark-red;
+        }
+    }
+
     &__form {
+        position: relative;
         border-radius: 12px;
         padding: 50px 100px;
         -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);

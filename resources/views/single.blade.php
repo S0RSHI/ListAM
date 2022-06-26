@@ -62,13 +62,21 @@
                 <button id="add_to_list" type="submit" name="single" value="{{$anime_manga[0]->id_am}}">Add to list</button>
                 <p id="response"></p>
             </form>
+            <a class="single-am__popup-close">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                    <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
+                </svg>
+            </a>
         </div>
     </div>
 </div>
 <script type="application/javascript">
 window.onload = addToList;
+
+
 function addToList() {
     var popup = document.querySelector('#popup');
+    document.querySelector('.single-am__popup-close').addEventListener('click', () => {popup.style.display = 'none'})
     document.querySelector('#single-am__button').addEventListener('click', function () {
         if(popup.style.display != 'flex'){
             popup.style.display = 'flex';
@@ -92,13 +100,12 @@ function addlist(e) {
     let id_am = {{$anime_manga[0]->id_am}};
     let status = document.querySelector('select[name="status"]').value;
     let progress = document.querySelector('input[name="progress"]').value;
-    let rate = document.querySelector('input[name="rate"]').value > 10;
+    let rate = document.querySelector('input[name="rate"]').value;
 
-    if (rate > 10) {
+    if (rate > 10)
         rate = 10;
-    } else if (rate < 0) {
+    if (rate < 0)
         rate = 0;
-    }
 
     if (progress < 0)
         progress = 0;

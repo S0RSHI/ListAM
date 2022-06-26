@@ -51,4 +51,16 @@ class UserList extends Controller
             return json_encode('nie git');
         }
     }
+
+    public function edit_list(request $request){
+        $id_user = Auth::id();
+        if(DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->first() != null){
+            DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['rate' => $request -> input('rate')]);
+            DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['status' => $request -> input('status')]);
+            DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['progress' => $request -> input('progress')]);
+            return json_encode('git');
+        } else {
+            return json_encode('nie git');
+        }
+    }
 }

@@ -10362,7 +10362,7 @@ textarea.form-control-lg {
   content: "";
   display: block;
   display: absolute;
-  background-color: #284b74;
+  background-image: linear-gradient(193deg, rgb(89, 131, 252) 0%, rgb(41, 53, 86) 100%);
   width: 100%;
   position: absolute;
   left: 0;
@@ -10472,7 +10472,22 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: center;
 }
+.single-am__popup-close {
+  box-shadow: 4px 4px 11px 0px rgb(0, 0, 0);
+  border-radius: 100%;
+  position: absolute;
+  top: -32px;
+  right: -32px;
+  transform: scale(0.7);
+  padding: 8px;
+  background-color: #EE4D4D;
+}
+.single-am__popup-close:hover {
+  cursor: pointer;
+  background-color: #D64545;
+}
 .single-am__form {
+  position: relative;
   border-radius: 12px;
   padding: 50px 100px;
   box-shadow: 4px 4px 11px 0px rgb(0, 0, 0);
@@ -10548,8 +10563,9 @@ textarea.form-control-lg {
   align-items: center;
   justify-content: center;
   background-color: #EE4D4D;
-  right: -16px;
+  right: -24px;
   bottom: -16px;
+  box-shadow: 4px 4px 11px 0px rgb(0, 0, 0);
 }
 .list-item__delete svg {
   width: 24px;
@@ -10558,6 +10574,28 @@ textarea.form-control-lg {
 .list-item__delete:hover {
   cursor: pointer;
   background-color: #D64545;
+}
+.list-item__edit {
+  border-radius: 100%;
+  z-index: 2;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #33AB5F;
+  bottom: 38px;
+  right: -24px;
+  box-shadow: 4px 4px 11px 0px rgb(0, 0, 0);
+}
+.list-item__edit svg {
+  width: 24px;
+  height: 24px;
+}
+.list-item__edit:hover {
+  cursor: pointer;
+  background-color: #2b8d4f;
 }
 .list-item__img {
   -webkit-border-top-left-radius: 12px;
@@ -10577,7 +10615,12 @@ textarea.form-control-lg {
 .list-item h5, .list-item .h5 {
   font-size: 20px;
 }
-.list-item h4, .list-item .h4 {
+.list-item h4, .list-item .h4, .list-item input, .list-item select {
+  color: #FFFFFF;
+  background-color: transparent;
+  outline: none;
+  margin: 0;
+  border: 0;
   font-size: 24px;
   justify-content: center;
   text-align: left;
@@ -10590,9 +10633,21 @@ textarea.form-control-lg {
   margin-top: 16px;
   border-radius: 12px;
 }
+.list-item select {
+  min-width: 150px;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.list-item select option {
+  cursor: pointer;
+  color: #000;
+}
+.list-item input, .list-item input::-webkit-outer-spin-button, .list-item input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  text-align: center !important;
+}
 .list-item__title h4, .list-item__title .h4 {
   width: 250px;
-}
-.list-item__status h4, .list-item__status .h4 {
-  width: 160px;
 }
