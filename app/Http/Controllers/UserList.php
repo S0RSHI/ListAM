@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 
-class AddToList extends Controller
+class UserList extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,15 +24,21 @@ class AddToList extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public static function add_to_list($id_am, $status, $progress, $ocena){
+    public function add_to_list(request $request){
         $id_user = Auth::id();
         if(DB::table('user_list')->where('id_user', '=', $id_user)->first() === null){
             DB::table('user_list')->insert(
-                array('id_am' => $id_am, 'id_user' => $id_user, 'status' => $status, 'progress' => $progress, 'rate' => $ocena)
+                array(
+                    'id_am' => $request -> input('id_am'),
+                    'id_user' => $id_user,
+                    'status' => $request -> input('status'),
+                    'progress' => $request -> input('progress'),
+                    'rate' => $request -> input('rate')
+                )
             );
-            return '<script> console.log("git")</script>';
+            return json_encode('git');
         } else {
-            return '<script> console.log("nie git")</script>';
+            return json_encode('nie git');
         }
     }
 }

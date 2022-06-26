@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controller\AddToList;
+use App\Http\Controller\UserList;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +21,6 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::get('/single/{id}', [App\Http\Controllers\SingleAM::class, 'index']);
 Route::get('/anime-list', [App\Http\Controllers\ListAM::class, 'list_anime']);
 Route::get('/manga-list', [App\Http\Controllers\ListAM::class, 'list_manga']);
+Route::get('/my-list', [App\Http\Controllers\ListAM::class, 'my_list']);
 
-Route::post('addList', [App\Http\Controllers\AddToList::class, 'add_to_list']);
+Route::post('/addList', [App\Http\Controllers\UserList::class, 'add_to_list']);

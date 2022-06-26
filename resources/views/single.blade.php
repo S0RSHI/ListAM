@@ -50,18 +50,54 @@
     <div id="popup" class="single-am__popup">
         <div class="single-am__form">
             <h3>Add this title to list</h3>
-            <form action="add_to_list" method="POST">
-
+            <form>
+                @csrf
                 <select name="status"  placeholder="Status">
-                    <option>Planning</option>
-                    <option>In progress</option>
-                    <option>Finished</option>
+                    <option selected="selected" value="1">Planning</option>
+                    <option value="2">In progress</option>
+                    <option value="3">Finished</option>
                 </select>
                 <input name="progress" type="number" min="0" placeholder="Progress">
                 <input name="rate" type="number" min="0" max="10" placeholder="Rate (0 - 10)">
-                <button type="submit">Add to list</button>
+                <button id="add_to_list" type="submit" name="single" value="{{$anime_manga[0]->id_am}}">Add to list</button>
+                <p id="response"></p>
             </form>
         </div>
     </div>
 </div>
+<script type="application/javascript">
+document.querySelector('#add_to_list').addEventListener('click', addlist);
+
+function addlist(e) {
+    e.preventDefault();
+
+    let id_am = {{$anime_manga[0]->id_am}};
+    let status = document.querySelector('select[name="status"]').value;
+    let progress = document.querySelector('input[name="progress"]').value;
+    let rate = document.querySelector('input[name="rate"]').value;
+
+    let params = {
+        id_am: id_am,
+        status: status,
+        progress: progress,
+        rate: rate
+    }
+
+    const headers = new Headers({
+        'Content-Type': 'application/json',
+        'X-CSRF-TOKEN': '{{csrf_token()}}'
+    });
+
+    fetch('/addList', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(params)
+    })
+
+    .then(data => data.json())
+    .then(data => {
+        console.log(data);
+    })
+}
+</script>
 @endsection

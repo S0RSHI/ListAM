@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/custom.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -43,8 +44,8 @@
                         <a href="/manga-list">
                             Manga list
                         </a>
-                        <a href="/">
-                            Your list
+                        <a href="/my-list">
+                            My list
                         </a>
                     </ul>
 
