@@ -66,6 +66,24 @@
     </div>
 </div>
 <script type="application/javascript">
+window.onload = addToList;
+function addToList() {
+    var popup = document.querySelector('#popup');
+    document.querySelector('#single-am__button').addEventListener('click', function () {
+        if(popup.style.display != 'flex'){
+            popup.style.display = 'flex';
+            popup.style.width = '100%';
+            popup.style.height = '100%';
+        } else {
+            popup.style.display = 'none';
+             popup.style.width = '0%';
+              popup.style.height = '0%';
+        }
+    });
+    popup.addEventListener('click', function (e) {
+        if (e.target == popup) popup.style.display = 'none';
+    });
+}
 document.querySelector('#add_to_list').addEventListener('click', addlist);
 
 function addlist(e) {
@@ -74,7 +92,17 @@ function addlist(e) {
     let id_am = {{$anime_manga[0]->id_am}};
     let status = document.querySelector('select[name="status"]').value;
     let progress = document.querySelector('input[name="progress"]').value;
-    let rate = document.querySelector('input[name="rate"]').value;
+    let rate = document.querySelector('input[name="rate"]').value > 10;
+
+    if (rate > 10) {
+        rate = 10;
+    } else if (rate < 0) {
+        rate = 0;
+    }
+
+    if (progress < 0)
+        progress = 0;
+
 
     let params = {
         id_am: id_am,

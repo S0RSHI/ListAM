@@ -26,7 +26,7 @@ class UserList extends Controller
 
     public function add_to_list(request $request){
         $id_user = Auth::id();
-        if(DB::table('user_list')->where('id_user', '=', $id_user)->first() === null){
+        if(DB::table('user_list')->where([['id_user', '=', $id_user],['id_am', '=', $request -> input('id_am')]])->first() === null){
             DB::table('user_list')->insert(
                 array(
                     'id_am' => $request -> input('id_am'),
@@ -36,6 +36,16 @@ class UserList extends Controller
                     'rate' => $request -> input('rate')
                 )
             );
+            return json_encode('git');
+        } else {
+            return json_encode('nie git');
+        }
+    }
+
+    public function remove_list(request $request){
+        $id_user = Auth::id();
+        if(DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->first() != null){
+            DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->delete();
             return json_encode('git');
         } else {
             return json_encode('nie git');
