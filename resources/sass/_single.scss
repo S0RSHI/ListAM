@@ -125,8 +125,78 @@
         box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
 
         &:hover {
+            cursor: pointer;
             color: $white;
             background-color: rgba($green,0.75);
+        }
+    }
+
+    &__popup {
+        z-index: 100;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 0%;
+        background-color: rgba($black, 0.8);
+        backdrop-filter: blur(5px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__form {
+        border-radius: 12px;
+        padding: 50px 100px;
+        -webkit-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
+        background-color: $dark-blue;
+
+        h3 {
+            color: $white;
+            margin-bottom: 32px;
+        }
+
+        form {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            input, select {
+                min-width: 150px;
+                width: calc(33% - 24px);
+                outline: none;
+                border: none;
+                border-radius: 8px;
+                padding: 4px;
+                color: $black;
+                background-color: $white;
+
+                option {
+                    background-color: $white;
+                    color: black;
+                }
+            }
+
+            button {
+                margin-top: 32px;
+                width: 100%;
+                outline: none;
+                border: none;
+                text-align: center;
+                padding: 8px 0px;
+                background-color: $green;
+                color: $white;
+                border-radius: 8px;
+                text-decoration: none;
+                margin-top: 32px;
+
+                &:hover {
+                    color: $white;
+                    background-color: rgba($green,0.75);
+                }
+            }
         }
     }
 }

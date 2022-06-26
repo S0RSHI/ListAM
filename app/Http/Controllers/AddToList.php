@@ -28,7 +28,7 @@ class AddToList extends Controller
         $id_user = Auth::id();
         if(DB::table('user_list')->where('id_user', '=', $id_user)->first() === null){
             DB::table('user_list')->insert(
-                array('id_am' => $id_am, 'id_user' => $id_user, 'status' => $status, 'progress' => $progress, 'ocena' => $ocena)
+                array('id_am' => $id_am, 'id_user' => $id_user, 'status' => $status, 'progress' => $progress, 'rate' => $ocena)
             );
             return '<script> console.log("git")</script>';
         } else {
