@@ -16,6 +16,10 @@
         box-shadow: 4px 4px 11px 0px rgba(0, 0, 0, 1);
         color: $white;
 
+        @media (max-width: 768px) {
+            padding: 16px 32px 32px !important;
+        }
+
         h2 {
             text-align: center;
             margin-bottom: 32px;
