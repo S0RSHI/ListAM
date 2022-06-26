@@ -12,7 +12,7 @@
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
   --bs-red: #EE4D4D;
-  --bs-orange: #fd7e14;
+  --bs-orange: #FD9644;
   --bs-yellow: #ffc107;
   --bs-green: #33AB5F;
   --bs-teal: #20c997;
@@ -10373,6 +10373,7 @@ textarea.form-control-lg {
 }
 .single-am__left-col {
   z-index: 1;
+  width: 300px;
   max-width: 300px;
   display: flex;
   flex-direction: column;
@@ -10485,6 +10486,16 @@ textarea.form-control-lg {
 .single-am__popup-close:hover {
   cursor: pointer;
   background-color: #D64545;
+}
+.single-am__form-error {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #FD9644;
+  width: 100%;
+  max-width: 550px;
+  text-align: center;
 }
 .single-am__form {
   position: relative;
@@ -10650,4 +10661,55 @@ textarea.form-control-lg {
 }
 .list-item__title h4, .list-item__title .h4 {
   width: 250px;
+}
+
+.am-login {
+  width: 100%;
+  min-height: calc(90vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.am-login__container {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  padding: 32px 64px 64px;
+  background-image: linear-gradient(193deg, rgb(89, 131, 252) 0%, rgb(41, 53, 86) 100%);
+  box-shadow: 4px 4px 11px 0px rgb(0, 0, 0);
+  color: #FFFFFF;
+}
+.am-login__container h2, .am-login__container .h2 {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.am-login__container input#email, .am-login__container input#password, .am-login__container input#password-confirm, .am-login__container input#name {
+  color: #000;
+  background-color: #FFFFFF !important;
+}
+.am-login__container .form-check-input {
+  background-color: #FFFFFF;
+}
+.am-login__container .form-check-input:checked {
+  background-color: #2b8d4f;
+  border-color: #2b8d4f;
+}
+.am-login__container button {
+  width: 100%;
+  max-width: 270px;
+  outline: none;
+  border: none;
+  text-align: center;
+  padding: 8px 0px;
+  background-color: #33AB5F;
+  color: #FFFFFF;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.am-login__container button:hover {
+  color: #FFFFFF;
+  background-color: rgba(51, 171, 95, 0.75);
 }

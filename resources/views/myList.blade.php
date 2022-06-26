@@ -122,7 +122,8 @@ function editlist(e) {
 
     .then(data => data.json())
     .then(data => {
-        if (data == 'git') location.reload();
+        if (data[0]) location.reload();
+        else alert(data[1]);
     })
 }
 </script>

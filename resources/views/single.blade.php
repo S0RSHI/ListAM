@@ -62,6 +62,7 @@
                 <button id="add_to_list" type="submit" name="single" value="{{$anime_manga[0]->id_am}}">Add to list</button>
                 <p id="response"></p>
             </form>
+            <p class="single-am__form-error" id="error-msg"></p>
             <a class="single-am__popup-close">
                 <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
                     <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
@@ -131,7 +132,11 @@ function addlist(e) {
 
     .then(data => data.json())
     .then(data => {
-        console.log(data);
+        let msg_container = document.getElementById('error-msg');
+        msg_container.innerHTML = data[1];
+        if(data[0]) msg_container.style.color = "#33AB5F";
+        else msg_container.style.color = "#EE4D4D";
+
     })
 }
 </script>

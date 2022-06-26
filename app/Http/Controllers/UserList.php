@@ -36,9 +36,9 @@ class UserList extends Controller
                     'rate' => $request -> input('rate')
                 )
             );
-            return json_encode('git');
+            return json_encode([true,'Tytuł został dodany do listy.']);
         } else {
-            return json_encode('nie git');
+            return json_encode([false,'Coś poszło nie tak podczas dodawania tytułu, prawdopodobnie tytuł został już wcześniej przez Ciebie dodany.']);
         }
     }
 
@@ -58,9 +58,9 @@ class UserList extends Controller
             DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['rate' => $request -> input('rate')]);
             DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['status' => $request -> input('status')]);
             DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['progress' => $request -> input('progress')]);
-            return json_encode('git');
+            return json_encode([true, '']);
         } else {
-            return json_encode('nie git');
+            return json_encode([false, 'Coś poszło nie tak, proszę zresetować stronę interneową']);
         }
     }
 }
