@@ -1,0 +1,80 @@
+.navbar {
+    background-color: $dark-blue;
+
+    a {
+        @media (max-width: 768px) {
+            padding: 8px 20px !important;
+        }
+    }
+
+    #navbarSupportedContent *{
+        color: $white;
+        font-size: 18px;
+
+        .dropdown-menu {
+            padding: 0;
+            background-color: $light-blue;
+            .dropdown-item:hover, .dropdown-item:focus {
+                background-color: rgba($dark-blue, 0.5);
+            }
+        }
+    }
+
+    &-brand{
+        @media (max-width: 992px) {
+            width: 180px;
+
+            svg {
+                width: 180px;
+            }
+        }
+    }
+}
+.v-nav {
+    &__menu {
+        &--left {
+            width: calc(100% - 150px);
+            justify-content: center;
+
+            @media (max-width: 768px) {
+                width: 100%;
+                text-align: right;
+            }
+
+            a {
+                padding:  0  20px;
+                text-decoration: none;
+
+                &:hover {
+                    color: $light-blue !important;
+                }
+            }
+        }
+
+        &--right {
+            width: 150px;
+
+            @media (max-width: 768px) {
+                text-align: right;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.custom-title {
+    &__01 {
+        width: 100%;
+        margin: 0 0 32px;
+        font-size: 28px;
+        font-weight: 900;
+        color: $white;
+        letter-spacing: 2px;
+    }
+}
+
+.custom-section {
+    &__01 {
+        margin: 0 0 64px;
+    }
+}
