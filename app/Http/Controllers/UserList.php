@@ -36,9 +36,9 @@ class UserList extends Controller
                     'rate' => $request -> input('rate')
                 )
             );
-            return json_encode([true,'Tytuł został dodany do listy.']);
+            return json_encode([true,'The title has been added to the list.']);
         } else {
-            return json_encode([false,'Coś poszło nie tak podczas dodawania tytułu, prawdopodobnie tytuł został już wcześniej przez Ciebie dodany.']);
+            return json_encode([false,'Something went wrong while adding the title, probably the title was already added by you before.']);
         }
     }
 
@@ -46,9 +46,9 @@ class UserList extends Controller
         $id_user = Auth::id();
         if(DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->first() != null){
             DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->delete();
-            return json_encode('git');
+            return json_encode([true, '']);
         } else {
-            return json_encode('nie git');
+            return json_encode([false, 'Something went wrong, please reset the website']);
         }
     }
 
@@ -60,7 +60,7 @@ class UserList extends Controller
             DB::table('user_list')->where([['id_user', '=', $id_user],['id_list', '=', $request -> input('id_list')]])->update(['progress' => $request -> input('progress')]);
             return json_encode([true, '']);
         } else {
-            return json_encode([false, 'Coś poszło nie tak, proszę zresetować stronę interneową']);
+            return json_encode([false, 'Something went wrong, please reset the website']);
         }
     }
 }
